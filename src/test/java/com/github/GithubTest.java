@@ -13,7 +13,6 @@ public class GithubTest {
     @DisplayName("Проверка наличия Junit5 на страницу SoftAssertions")
     void wikisCheckInSelenide() {
         open("https://github.com/");
-        $(byName("q")).click();
         $(byName("q")).setValue("selenide").pressEnter();
         $("ul.repo-list li").$(byLinkText("selenide/selenide")).click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
@@ -28,7 +27,6 @@ public class GithubTest {
                 .scrollTo()
                 .shouldBe(visible)
                 .ancestor("h4")
-                .shouldHave(text("Junit5"))
-                .shouldBe();
+                .shouldHave(text("Junit5"));
     }
 }
